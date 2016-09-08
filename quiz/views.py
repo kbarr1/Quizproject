@@ -33,8 +33,20 @@ def quiz(request, quiz_number):
 
 	return render(request, "quiz/quiz.html", context)
 
-def question(request):
-	return render(request, "quiz/question.html")
+def question(request, quiz_number, question_number):
+	context = {
+	"quiz":quizzes[int(quiz_number) - 1],
+	"quiz_number": quiz_number,
+	"question_number": question_number,
+	"question": "Hur många bultar har bron?",
+	"answer1": "12",
+	"answer2": "66 400",
+	"answer3": "7 428 954",
+
+
+
+	}
+	return render(request, "quiz/question.html", context)
 
 def results(request):
 	return render(request, "quiz/results.html")
