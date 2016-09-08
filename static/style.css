@@ -1,7 +1,21 @@
 body {
+    background-image: url("/static/blackboard.jpg");
+    background-size: cover;
+}
+
+.startsidan {
+    background-color: white;
+    background-image: none;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     
-    background-image: url(http://www.orientamentoinrete.it/sites/default/files/blackboard.jpg);
-    background-repeat: no-repeat;
+    overflow: hidden;
+    z-index: -1000;
 }
 
 .navbar{
@@ -26,6 +40,7 @@ ul {
 
 }
 
+
 li {
     display: inline-block;
 }
@@ -40,13 +55,15 @@ li a {
     
 }
 
-
-
 li a:hover {
-    transition: 0.5s ease;
-    text-decoration:none;
+    border-bottom: solid 2px; 
     color: white;
+    text-decoration: none;
+    margin-top: 2px;
 }
+
+
+
 
 .startknapp {
     color: black;
@@ -62,27 +79,42 @@ li a:hover {
 
 }
 
+
+
+
 .box1 {
    
-    padding-top: 10px;
+    padding-top: 60px;
+    padding: 60px 10px 10px 10px;
     text-align: center;
-    margin-left: 2px;
-    margin-right: 2px;
-    margin-bottom: 10px;
-    padding-bottom: 40px;
-    background-color: #CAF2CA;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    padding-bottom: 10px;
+    
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
+    width: 230px;
+    height: 230px;
+    border-radius: 100%;
+
+
     
 }
 
 .box1 {
-    opacity: 0.5;
+    background-color: rgba(202, 242, 202, 0.6);
     
 }
 
 .box1:hover {
-    opacity: 0.8;
+    
+    background-color: rgba(93, 152, 141, 0.8);
+
+#box_text {
+    opacity: 1.0;
+
+}
     
 }
 
@@ -90,8 +122,8 @@ li a:hover {
   transform: scale(1.1);
 }
 .jumbotron2 {
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     margin-bottom: 5px;
     background-color: rgba(255,255,255,0);
     color: white;
@@ -103,7 +135,7 @@ li a:hover {
 
 .jumbotron1 {
     padding-top: 70px;
-    padding-bottom: 90px;
+    padding-bottom: 30px;
     margin-bottom: 10px;
     background-color: rgba(255,255,255,0);
     color: white;
@@ -124,7 +156,7 @@ li a:hover {
 .quizknapp {
     display: inline-block;
     border-radius: 4px;
-    background-color: #009999;
+    background-color: rgba(93, 152, 141, 0.8);
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -144,7 +176,7 @@ li a:hover {
 .quizknapp2 {
     display: inline-block;
     border-radius: 4px;
-    background-color: #009999;
+    background-color: rgba(93, 152, 141, 0.8);
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -197,3 +229,33 @@ li a:hover {
     transition-duration: 0.3s, 0.3s;
     transition-timing-function: linear;
 }
+
+
+
+input[type='radio'] {
+   -webkit-appearance: none; /*för att ta bort standarden*/
+}
+input[type='radio']:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    top: 2px;
+    left: -1px;
+    position: relative;
+    background-color: white;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+}
+input[type='radio']:checked:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    top: 2px;
+    left: -1px;
+    position: relative;
+    background-color: rgb(93, 152, 141);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    }

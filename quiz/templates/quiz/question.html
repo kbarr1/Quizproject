@@ -14,10 +14,10 @@
 	<div class="container">
 		<div class="our_own_navbar">
 			<ul>
-  				<li><a href="#home">Hem</a></li>
- 			
-  				<li><a href="#contact">Kontakt</a></li>
-  				<li><a href="#about">Om</a></li>
+				<li><a class="a-start" href="{% url 'start_page' %}">Home</a></li>
+				{% for quiz in quizzes %}
+				<li><a class="a-start" href="{% url "quiz_page" quiz.quiz_number %}">{{ quiz.name }}</a></li>
+				{% endfor %}
 			</ul>
 			
 		</div>
@@ -41,7 +41,7 @@
 				<label class="check" for="alt2">{{ answer2 }}</label><br>
 				<input type="radio" name="alt" id="alt3" value="">
 				<label class="check" for="alt3">{{ answer3 }}</label><br>
-				<a href="results.html">
+				<a href="{% url 'results_page' quiz_number %}">
 			<button class="quizknapp quizknapp2" style="vertical-align: middle"><span>RESULTAT</span></button></a>
 			
 		</div>

@@ -3,17 +3,17 @@ from django.shortcuts import render
 quizzes = [
 	{
 		"quiz_number": 1,
-   		"name": "Klassiska böcker",
+   		"name": "QUIZ 1",
 	   	"description": "Hur bra kan du dina klassiker?"
 	},
 	{
 		"quiz_number": 2,
-   	   	"name": "Största 1slagen",
+   	   	"name": "QUIZ 2",
 	   	"description": "Kan du dina lag?"
 	},
 	{
 		"quiz_number": 3,
-   	    	"name": "Hackare",
+   	    	"name": "QUIZ 3",
 	    	"description": "Hackerhistoria är viktigt, kan du den?"	},
 ]
 
@@ -27,6 +27,7 @@ def start(request):
 
 def quiz(request, quiz_number):
 	context = {
+	"quizzes": quizzes,
 	"quiz":quizzes[int(quiz_number) - 1],
 	"quiz_number": quiz_number,
 	}
@@ -35,6 +36,7 @@ def quiz(request, quiz_number):
 
 def question(request, quiz_number, question_number):
 	context = {
+	"quizzes": quizzes,
 	"quiz":quizzes[int(quiz_number) - 1],
 	"quiz_number": quiz_number,
 	"question_number": question_number,
@@ -50,6 +52,7 @@ def question(request, quiz_number, question_number):
 
 def results(request, quiz_number):
 	context = {
+	"quizzes": quizzes,
 	"correct": 12,
 	"total": 20, 
 	"quiz_number": quiz_number,

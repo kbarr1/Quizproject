@@ -9,17 +9,25 @@
 	<link rel="stylesheet" type="text/css" href="/static/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
-<body>
+<body class="startsidan">
+
+
+<video autoplay loop>
+  <source src="/static/film2.mp4" type="video/mp4">
+ 
+</video>
+
+
 
 
 <nav class="navbar">
 	<div class="container">
 		<div class="our_own_navbar">
 			<ul>
-  				<li><a href="#home">Hem</a></li>
- 			
-  				<li><a href="#contact">Kontakt</a></li>
-  				<li><a href="#about">Om</a></li>
+				<li><a class="a-start" href="{% url 'start_page' %}">Home</a></li>
+				{% for quiz in quizzes %}
+				<li><a class="a-start" href="{% url "quiz_page" quiz.quiz_number %}">{{ quiz.name }}</a></li>
+				{% endfor %}
 			</ul>
 			
 		</div>
@@ -30,27 +38,36 @@
 
 <div class="jumbotron jumbotron1">
 	<div class= "container">
-	<h1>Välkommen till quizet</h1>
-	<p>Här kan du välja på 3 olika quiz</p>
+	<h1>QUIZ QUIZ QUIZ</h1>
+	<p>Här kan du testa dina kunskaper i 3 utmanande quiz!</p>
 		
 	</div>
 </div>
 
 <div class="container">
 	<div class="row">
+	    <div class="col-md-10 col-md-offset-1">
+		
 			{% for quiz in quizzes %}
-			
-			
+		<a class="startknapp" href= "{% url "quiz_page" quiz.quiz_number %}" >
 		<div class="col-md-4">
+		
 		<div class="box1">
+			
 			<h1>{{ quiz.name }}</h1>
-
 			<p>{{ quiz.description }}</p>
-			<p><a class="startknapp" href="quiz.html" role="button">Starta &raquo;</a></p>
-			</div>
+
+			
+			
+
 		</div>
+		</div>
+		</a>
 		{% endfor %}
 		
+		</div>
+
+		</div>
 	</div>
 </div>
 

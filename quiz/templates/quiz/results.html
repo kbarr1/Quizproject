@@ -14,10 +14,10 @@
 	<div class="container">
 		<div class="our_own_navbar">
 			<ul>
-  				<li><a href="#home">Hem</a></li>
- 			
-  				<li><a href="#contact">Kontakt</a></li>
-  				<li><a href="#about">Om</a></li>
+				<li><a class="a-start" href="{% url 'start_page' %}">Home</a></li>
+				{% for quiz in quizzes %}
+				<li><a class="a-start" href="{% url "quiz_page" quiz.quiz_number %}">{{ quiz.name }}</a></li>
+				{% endfor %}
 			</ul>
 			
 		</div>
@@ -33,10 +33,11 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6 questions">
 			
-			<h1>Du fick {{ correct }} av {{ total }}</h1>
+			<h1>Ditt resultat blev:</h1>
+			<h1>{{ correct }} av {{ total }}</h1>
 
 			<p>Bra jobbat!</p>
-			<a href="start.html">
+			<a href="{% url 'start_page' %}">
 			<button class="quizknapp quizknapp2" style="vertical-align: middle"><span>Nytt quiz</span></button></a>
 
 			
