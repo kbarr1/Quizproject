@@ -11,6 +11,7 @@
 </head>
 <body>
 
+
 <nav class="navbar">
 	<div class="container">
 		<div class="our_own_navbar">
@@ -37,27 +38,19 @@
 
 <div class="container">
 	<div class="row">
+			{% for quiz in quizzes %}
+			
+			
 		<div class="col-md-4">
 		<div class="box1">
-			<h1>Quiz 1</h1>
-			<p>Det enklaste quizet startar du här.</p>
+			<h1>{{ quiz.name }}</h1>
+
+			<p>{{ quiz.description }}</p>
 			<p><a class="startknapp" href="quiz.html" role="button">Starta &raquo;</a></p>
 			</div>
 		</div>
-		<div class="col-md-4">
-			<div class ="box1">
-			<h1>Quiz 2</h1>
-			<p>Det här quizet är lite svårare än det första.</p>
-			<p><a class="startknapp" href="#" role="button">Starta &raquo;</a></p>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="box1">
-			<h1>Quiz 3</h1>
-			<p>Det svåraste quizet!</p>
-			<p><a class="startknapp" href="#" role="button">Starta &raquo;</a></p>
-			</div>
-		</div>
+		{% endfor %}
+		
 	</div>
 </div>
 
