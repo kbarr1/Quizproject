@@ -223,6 +223,12 @@ li a:hover {
     font-family: 'Roboto', sans-serif;
 }
 
+.question2 {
+    background-color: rgba(0,0,0,0.3);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .check:hover {
     color: #009999;
     transition-property:color, text;
