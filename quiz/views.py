@@ -14,8 +14,8 @@ def start(request):
 
 def quiz(request, quiz_number):
 	context = {
-	"quizzes": quizzes,
-	"quiz":quizzes[int(quiz_number) - 1],
+	"quizzes": Quiz.objects.all(),
+	"quiz":Quiz.objects.get(quiz_number=quiz_number),
 	"quiz_number": quiz_number,
 	}
 
