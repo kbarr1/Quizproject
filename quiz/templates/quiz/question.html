@@ -33,16 +33,20 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6 questions question2">
 			<h1>{{ quiz.name }}</h1>
-			
 			<h3>{{ question_number }}. {{ question }}</h3>
-				<input type="radio" name="alt" id="alt1" value="">
+				<form action="{% url "answer_page" quiz.quiz_number question_number %}" method="post">
+				{% csrf_token %}
+				<input type="radio" name="answer" id="alt1" value="1">
 				<label class="check" for="alt1">{{ answer1 }}</label><br>
-				<input type="radio" name="alt" id="alt2" value="">
+				<input type="radio" name="answer" id="alt2" value="2">
 				<label class="check" for="alt2">{{ answer2 }}</label><br>
-				<input type="radio" name="alt" id="alt3" value="">
+				<input type="radio" name="answer" id="alt3" value="3">
 				<label class="check" for="alt3">{{ answer3 }}</label><br>
-				<a href="{% url 'results_page' quiz_number %}">
-			<button class="quizknapp quizknapp2" style="vertical-align: middle"><span>RESULTAT</span></button></a>
+				
+				<button type="submit" class="quizknapp quizknapp2" style="vertical-align: middle"><span>NÄSTA</span>
+				</button>
+				</form>
+
 			
 		</div>
 		<div class="col-md-3"></div>

@@ -1,4 +1,4 @@
-
+from django.shortcuts import redirect
 from quiz.models import Quiz
 from django.shortcuts import render
 
@@ -35,13 +35,23 @@ def question(request, quiz_number, question_number):
 	    "answer3": question.answer3,
 	    "quiz": quiz,
 		"quiz_number": quiz_number,
+		"quizzes": Quiz.objects.all(),
 
 	}
 	return render(request, "quiz/question.html", context)
 
+def answer(request, quiz_number, question_number):
+    saved_answers = request.session.get(quiz_number, {})
+    answer = int(request.POST["answer"])
+    saved_answers[question_number] = answer
+    request.session[quiz_number] = saved_answers
+
+    question_number = int(question_number)
+    return redirect("question_page", quiz_number, question_number + 1)
+
 def results(request, quiz_number):
 	context = {
-	"quizzes": quizzes,
+	"quizzes": Quiz.objects.all(),
 	"correct": 12,
 	"total": 20, 
 	"quiz_number": quiz_number,
